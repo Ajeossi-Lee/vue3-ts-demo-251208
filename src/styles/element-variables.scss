@@ -1,0 +1,12 @@
+// 覆盖 Element Plus 的主题变量
+// 在按需引入时，这个文件会被注入到每个组件的样式文件中
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': #00ffff
+    )
+  ),
+  $font-size: (
+    'base': 16px
+  )
+);
