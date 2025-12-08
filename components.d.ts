@@ -11,8 +11,20 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AppProvider: typeof import('./src/components/application/AppProvider.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
+    ElContainer: typeof import('element-plus/es')['ElContainer']
+    ElFooter: typeof import('element-plus/es')['ElFooter']
+    ElHeader: typeof import('element-plus/es')['ElHeader']
+    ElLink: typeof import('element-plus/es')['ElLink']
+    ElMain: typeof import('element-plus/es')['ElMain']
+    ProTable: typeof import('./src/components/pro-table/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Src: typeof import('./src/components/svg-icon/src/index.vue')['default']
+  }
+  export interface GlobalDirectives {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

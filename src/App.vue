@@ -1,17 +1,27 @@
 <template>
-  <div>
-    <div class="text-3xl text-red-500 font-bold underline">Hello world!</div>
-    <el-button type="primary">Click me</el-button>
-    <div>{{ configStore.dark }}</div>
-  </div>
+  <el-config-provider :locale="locale">
+    <!-- <AppProvider> -->
+    <router-view />
+    <!-- </AppProvider> -->
+  </el-config-provider>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import en from 'element-plus/es/locale/lang/en'
 import useConfigStore from '@/store/modules/config'
+import { storeToRefs } from 'pinia'
+// import { AppProvider } from '@/components/application'
 
-const configStore = useConfigStore()
+const { language } = storeToRefs(useConfigStore())
 
-console.log(configStore.dark)
+const lang = {
+  zhCn,
+  en
+}
+
+const locale = computed(() => lang[language.value])
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>
